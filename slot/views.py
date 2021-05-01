@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import throttle_classes
 from rest_framework.viewsets import ModelViewSet, ViewSet
 
+from slot.CustomThrottle import AnonTenRequestThrottle
 from slot.models import CarSlot, generate_slot_number
 from slot.serializer import CarSlotSerializer
 from carslot.settings import park_size
@@ -101,6 +102,7 @@ class CarSlotViewSet(ViewSet):
                              "slot  number after inputting their plate number",
         operation_summary='CREATE SLOT NUMBER',
         responses={**create_response})
+    @throttle_classes([AnonTenRequestThrottle])
     def create(self, request, *args, **kwargs):
         try:
             data = self.get_data(request)

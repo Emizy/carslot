@@ -153,9 +153,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'DEFAULT_THROTTLE_CLASSES': (
-        'rest_framework.throttling.ScopedRateThrottle',
+        'slot.CustomThrottle.AnonTenRequestThrottle',
     ),
     'DEFAULT_THROTTLE_RATES': {
-        'slot.create': '10/sec',
+        'car_slot': '10/10sec',
     }
 }
