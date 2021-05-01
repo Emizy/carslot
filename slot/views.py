@@ -4,7 +4,8 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from datetime import datetime
-
+import pytz
+from django.utils.timezone import make_aware
 from rest_framework.decorators import action
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
@@ -118,6 +119,8 @@ class CarSlotViewSet(ViewSet):
             if self.queryset.filter(plate_number__isnull=True).exists():
                 exist_slot = self.queryset.filter(plate_number__isnull=True).first()
                 exist_slot.__setattr__('plate_number', data.get('plate_number'))
+                exist_slot.__setattr__('date_created',
+                                       make_aware(datetime.today(), timezone=pytz.timezone('Africa/Lagos')))
                 exist_slot.save()
                 return Response(
                     {'status': status.HTTP_201_CREATED, 'message': 'SLOT CREATED',
@@ -130,7 +133,7 @@ class CarSlotViewSet(ViewSet):
             slot = generate_slot_number(CarSlot)
             if slot['status']:
                 payload = {'slot_number': slot['slot'], 'plate_number': data.get('plate_number'),
-                           'date_created': datetime.today()}
+                           'date_created': make_aware(datetime.today(), timezone=pytz.timezone('Africa/Lagos'))}
                 serialize = self.serializer_class(data=payload)
                 if serialize.is_valid():
                     obj = serialize.save()
