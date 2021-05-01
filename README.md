@@ -10,7 +10,23 @@ if not the system will throw ImproperlyConfigured error
 * run python manage.py runserver to start the project with access the project through the following endpoint
 - 127.0.0.1:8000
 - Swagger / Documentation endpoint
-    127.0.0.1:8000/swagger
+    http://127.0.0.1:8000/swagger/
+    http://127.0.0.1:8000/redoc/
+    
+ 
+#AVAILABLE API ENDPOINTS#
+TO CREATE A SLOT 
+- METHOD: POST
+- URL:  http://127.0.0.1:8000/park/
+
+TO GET SLOT INFORMATION
+-METHOD: GET
+-URL: http://127.0.0.1:8000/park/fetch_slot/
+
+TO DE-ALLOCATE A SLOT
+-METHOD: DELETE
+-URL: http://127.0.0.1:8000/park/delete_slot/
+
 
 ### Requirements: ###
 This project requirements can be found in the requirements.txt file
@@ -18,5 +34,6 @@ which include but not limited to the following:
 
 
 *Django==3.1
-*django-cors-headers==3.5.0
 *djangorestframework==3.12.1
+*drf-yasg==1.20.0
+*coreapi==2.3.3

@@ -69,6 +69,9 @@ class CarSlotViewSet(ViewSet):
             url_path=r'fetch_slot/(?P<number>[^/]+)',
             url_name="Get slot information"
             )
+    @swagger_auto_schema(operation_description="*GET SLOT INFORMATION*: This allow users to get "
+                                               "slot  information after inputting their plate number or slot number",
+                         operation_summary='GET SLOT INFORMATION')
     def fetch_slot(self, request, number=None):
         try:
             try:
@@ -153,6 +156,9 @@ class CarSlotViewSet(ViewSet):
 
     @action(detail=False, methods=['delete'], description='Delete a slot by supplying the slot id',
             url_path=r'delete_slot/(?P<slot_number>[^/]+)', url_name='Empty slot endpoint')
+    @swagger_auto_schema(
+        operation_description="*DE-ALLOCATE A SLOT*: This endpoint accept slot number and de-allocate the plate-number assign to the slot",
+        operation_summary='DELETE SLOT')
     def delete_slot(self, request, slot_number=None):
         context = {'status': status.HTTP_400_BAD_REQUEST}
         try:
