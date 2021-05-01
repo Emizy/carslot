@@ -1,4 +1,4 @@
-#CAR SLOT #
+## CAR SLOT ###
 A car park slot allocating system,primary built-on django python,which allow 
 individuals to get an allocated parking space by inputting their car plate number
 
@@ -14,29 +14,29 @@ if not the system will throw ImproperlyConfigured error
     http://127.0.0.1:8000/redoc/
     
  
-#AVAILABLE API ENDPOINTS#
-TO CREATE A SLOT 
+## AVAILABLE API ENDPOINTS ###
+- TO CREATE A SLOT 
 - METHOD: POST
 - URL:  http://127.0.0.1:8000/park/
 
-TO GET SLOT INFORMATION
--METHOD: GET
--URL: http://127.0.0.1:8000/park/fetch_slot/
+- TO GET SLOT INFORMATION
+- METHOD: GET
+- URL: http://127.0.0.1:8000/park/fetch_slot/
 
 TO DE-ALLOCATE A SLOT
--METHOD: DELETE
--URL: http://127.0.0.1:8000/park/delete_slot/
+- METHOD: DELETE
+- URL: http://127.0.0.1:8000/park/delete_slot/
 
 
 - GITHUB
-https://github.com/Emizy/carslot
+- https://github.com/Emizy/carslot
 
 ### Requirements: ###
 This project requirements can be found in the requirements.txt file
 which include but not limited to the following:
 
 
-*Django==3.1
-*djangorestframework==3.12.1
-*drf-yasg==1.20.0
-*coreapi==2.3.3
+* Django==3.1
+* djangorestframework==3.12.1
+* drf-yasg==1.20.0
+* coreapi==2.3.3
