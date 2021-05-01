@@ -28,6 +28,9 @@ TO DE-ALLOCATE A SLOT
 -URL: http://127.0.0.1:8000/park/delete_slot/
 
 
+- GITHUB
+https://github.com/Emizy/carslot
+
 ### Requirements: ###
 This project requirements can be found in the requirements.txt file
 which include but not limited to the following:
